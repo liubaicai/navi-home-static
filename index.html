@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sortablejs@1.6.0/Sortable.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vuedraggable@2.16.0/dist/vuedraggable.min.js"></script>
+    <style>
+        #footer {
+            height: 40px;
+            line-height: 40px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #333333;
+            font-family: Arial;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .calalog {
+            border-top: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .calalog:last-child {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .calalog-title {
+            width: 130px;
+            height: 44px;
+            float: left;
+            padding: 1px 10px;
+        }
+
+        .calalog-title .name-text {
+            width: 60px;
+            height: 42px;
+            line-height: 42px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .calalog-items {
+            width: calc(100% - 130px);
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .calalog-item {
+            width: 182px;
+            height: 44px;
+        }
+
+        .calalog-item:hover {
+            background-color: #EFEFEF;
+        }
+
+        .calalog-item .nav-icon {
+            margin-left: 15px;
+            margin-top: 12px;
+            float: left;
+        }
+
+        .calalog-item .nav-text {
+            line-height: 41px;
+            height: 41px;
+            margin-left: 5px;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            max-width: 136px;
+            float: left;
+        }
+
+        .calalog-item .nav-text .nav-text-content {
+            max-width: 100%;
+            _width: 100%;
+            height: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container-fluid">
+        <nav class="navbar navbar-light" style="font-size: 14px">
+            <div class="justify-content-center">
+                <a hidden> </a>
+                <a class="text-danger nav-item"> </a>
+            </div>
+            <div class="justify-content-end">
+                Hi,
+                <a href="#">刘白菜</a>
+            </div>
+        </nav>
+
+        <div class="row" style="height: 20px"></div>
+
+        <h1 class="text-hide"></h1>
+        <img class="rounded mx-auto d-block" src="/images/bd_logo.png" alt="Bd logo" width="370" height="129" />
+
+        <div class="row" style="height: 20px"></div>
+
+        <form class="input-group" action="//www.google.com/search" method="get" target="_self"
+            style="max-width: 641px; margin: 0 auto; text-align: center">
+            <!--  <input name="ensearch" value="1" type="hidden">-->
+            <input name="q" type="text" class="form-control" placeholder="" />
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button"
+                    onclick="window.open('//www.baidu.com/s?wd='+document.getElementsByName('q')[0].value)">
+                    百度
+                </button>
+                <button class="btn btn-info" type="button"
+                    onclick="window.open('//cn.bing.com/search?q='+document.getElementsByName('q')[0].value)">
+                    必应
+                </button>
+                <button class="btn btn-primary" type="button"
+                    onclick="window.open('//www.google.com/search?q='+document.getElementsByName('q')[0].value)">
+                    谷歌
+                </button>
+            </div>
+        </form>
+
+        <div class="row" style="height: 50px"></div>
+
+        <div style="max-width: 900px; margin: 0 auto; text-align: center">
+            <div class="card" style="text-align: left">
+                <div class="card-header" style="padding-top: 0; padding-bottom: 0">
+                    <nav class="navbar navbar-light bg-light">
+                        <span class="navbar-brand" style="font-size: 14px">
+                            我的导航
+                        </span>
+                    </nav>
+                </div>
+                <div class="card-body">
+                    <div class="calalog clearfix">
+                        <div class="calalog-title">
+                            <span class="name-text">常用</span>
+                        </div>
+                        <div class="row calalog-items">
+                            <a class="calalog-item text-dark" href="https://amap.com"><img
+                                    src="https://amap.com/favicon.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">高德地图</span>
+                                </div>
+                            </a><a class="calalog-item text-dark"
+                                href="https://weibo.com/mygroups?gid=110001221841114"><img
+                                    src="https://weibo.com/favicon.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">微博</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://github.com/liubaicai"><img
+                                    src="https://github.com/favicon.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">Github</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://www.v2ex.com"><img
+                                    src="https://www.csdn.net/favicon.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">CDN</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="calalog clearfix">
+                        <div class="calalog-title">
+                            <span class="name-text">个人</span>
+                        </div>
+                        <div class="row calalog-items">
+                            <a class="calalog-item text-dark" href="https://www.liubaicai.net"><img
+                                    src="https://www.liubaicai.net/favicon.ico" height="16" width="16"
+                                    class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">菜园子</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://www.6mao.wang"><img
+                                    src="https://www.6mao.wang/favicon.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">遛猫网</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://bing.liubaicai.net"><img
+                                    src="https://bing.liubaicai.net/favicon.ico" height="16" width="16"
+                                    class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">必应壁纸</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="calalog clearfix">
+                        <div class="calalog-title">
+                            <span class="name-text">Home</span>
+                        </div>
+                        <div class="row calalog-items">
+                            <a class="calalog-item text-dark" href="https://10.233.0.222"><img
+                                    src="/icons/10.233.0.222.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">白菜云</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://10.233.0.200/"><img
+                                    src="/icons/nextcloud.png" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">HServer</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://10.233.0.225/"><img src="/icons/pve.ico"
+                                    height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">Git</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="calalog clearfix">
+                        <div class="calalog-title">
+                            <span class="name-text">娱乐</span>
+                        </div>
+                        <div class="row calalog-items">
+                            <a class="calalog-item text-dark" href="https://www.bilibili.com"><img
+                                    src="https://www.bilibili.com/favicon.ico" height="16" width="16"
+                                    class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">哔哩哔哩</span>
+                                </div>
+                            </a><a class="calalog-item text-dark" href="https://www.acfun.cn"><img
+                                    src="https://www.acfun.cn/favicon.ico" height="16" width="16" class="nav-icon" />
+                                <div class="nav-text">
+                                    <span class="nav-text-content">AcFun</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <a href="http://www.beian.miit.gov.cn">京ICP备14022168号-1</a> | Powered by <a href="https://www.liubaicai.net">白菜云</a>
+    </div>
+</body>
+
+</html>
